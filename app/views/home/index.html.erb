@@ -1,0 +1,14 @@
+<h1>There are <span class="loud">
+	<span class="green">two</span> 
+	<span class="red">types</span></span> of people:</h1>
+<h2>
+	<%= semantic_form_for @post, :remote => true do |form| %>
+		<%= form.inputs do %>
+			those who <%= form.input :typea, :placeholder => "like the Red Sox", :input_html => { :class => 'green' } %>, 
+			and those who <%= form.input :typeb, :placeholder => "like the Yankees", :input_html => { :class => 'red' } %>.
+		<% end %>
+		<%= form.buttons do %>
+			<%= form.commit_button "Submit", :button_html => { :class => "btn", :disable_with => 'Wait...' } %>
+		<% end %>	
+	<% end %>
+</h2>
