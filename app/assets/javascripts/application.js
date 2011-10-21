@@ -7,3 +7,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).keydown(function(e){
+	var code = (e.keyCode ? e.keyCode : e.which);
+	if( code == 39 ) {
+		$.ajax({
+			url: "/",
+			dataType: "script"
+		});
+	}
+});

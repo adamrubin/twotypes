@@ -1,14 +1,33 @@
+<script>
+	function toggleForm() {
+		$("#types-display").toggle();
+		$("#types-form").toggle();
+	}
+</script>
+
 <h1>There are <span class="loud">
 	<span class="green">two</span> 
 	<span class="red">types</span></span> of people:</h1>
+
+<div id="types-display">
+	<h2>those who <span class="green"><%= @post.typea %></span> and those who <span class="red"><%= @post.typeb %></span>.</h2>
+</div>
+
+<div id="types-form">
 <h2>
-	<%= semantic_form_for @post, :remote => true do |form| %>
+	<%= semantic_form_for Post.new do |form| %>
 		<%= form.inputs do %>
-			those who <%= form.input :typea, :placeholder => "like the Red Sox", :input_html => { :class => 'green' } %>, 
-			and those who <%= form.input :typeb, :placeholder => "like the Yankees", :input_html => { :class => 'red' } %>.
+			those who <%= form.input :typea, :required => true, :input_html => { :class => 'green', :autofocus => "autofocus", :autocomplete => "off" } %>, 
+			and those who <%= form.input :typeb, :required => true, :input_html => { :class => 'red', :autocomplete => "off" } %>.
 		<% end %>
 		<%= form.buttons do %>
-			<%= form.commit_button "Submit", :button_html => { :class => "btn", :disable_with => 'Wait...' } %>
+			<%= form.commit_button "Submit", :button_html => { :class => "btn" } %>
 		<% end %>	
 	<% end %>
 </h2>
+</div>
+
+<div id="links">
+	Use &rarr; to see another &bull; 
+	<%= link_to "Add your own", "javascript:void(0)", :onClick => "toggleForm()" %>
+</div>
