@@ -5,6 +5,7 @@ gem 'formtastic'
 gem 'heroku'
 gem 'jquery-rails'
 gem 'randumb'
+gem 'kaminari'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"

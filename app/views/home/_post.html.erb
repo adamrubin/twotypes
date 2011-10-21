@@ -1,0 +1,63 @@
+<script>
+	function toggleForm() {
+		$("#types-display").toggle();
+		$("#types-form").toggle();
+		$("#share").toggle();
+	}
+
+	$(document).keydown(function(e){
+		var code = (e.keyCode ? e.keyCode : e.which);
+		
+		if( code == 39 ) {
+			var page = parseInt($("#page").text());
+			page++;
+
+			if (page > <%=@count%>) { page = 1 }
+			$.ajax({
+				url: "/",
+				data: "page=" + page,
+				dataType: "script"
+			});
+		} else if ( code == 37 ) {
+			var page = parseInt($("#page").text());
+			page--;
+
+			if (page > 0) {
+				$.ajax({
+					url: "/",
+					data: "page=" + page,
+					dataType: "script"
+				});
+			}
+		}
+	});
+</script>
+<div id="page">1</div>
+
+<h1>There are <span class="loud">
+	<span class="green">two</span> 
+	<span class="red">types</span></span> of people:</h1>
+
+<div id="types-display">
+	<h2>those who <span class="green"><%= @post.typea %></span> and those who <span class="red"><%= @post.typeb %></span>.</h2>
+</div>
+
+<div id="types-form">
+<h2>
+	<%= semantic_form_for Post.new do |form| %>
+		<%= form.inputs do %>
+			those who <%= form.input :typea, :required => true, :input_html => { :class => 'green', :autofocus => "autofocus", :autocomplete => "off" } %>, 
+			and those who <%= form.input :typeb, :required => true, :input_html => { :class => 'red', :autocomplete => "off" } %>.
+		<% end %>
+		<%= form.buttons do %>
+			<%= form.commit_button "Submit", :button_html => { :class => "btn" } %>
+		<% end %>	
+	<% end %>
+</h2>
+</div>
+
+<div id="share">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://twotyp.es/<%=@post.id%>" data-text="There are two types of people: those who <%=@post.typea%>, and those who <%=@post.typeb%>." data-count="none" data-via="twotyp_es">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+</div>
+<div id="share-temp">
+</div>

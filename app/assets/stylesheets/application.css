@@ -62,6 +62,7 @@ h2 {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
 	font-weight: 200;
 	font-size: 3.2em;
+	line-height: 1.0em;
 }
 
 #wrapper {
@@ -92,9 +93,19 @@ h2 {
 #types-form {
 	display: none;
 }
-
+#page {
+	display: none;
+}
+#share-temp {
+	display: none;
+}
 #links {
-	padding-top: 200px;
+	position: absolute;
+	width:100%; 
+	margin-left:0px; 
+	left:0px; 
+	text-align:center;
+	bottom: 100px;
 }
 .loud {
 	letter-spacing: 1px;
