@@ -3,14 +3,5 @@ $("#types-display").html("<h2>those who <span class='green'><%= @post.typea %></
 $("#types-display").fadeIn("slow");
 $("#page").html("<%=@page %>");
 $("#share").hide();
-$("#share").html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://twotyp.es/<%=@post.id%>' data-text='There are two types of people: those who <%=@post.typea%>, and those who <%=@post.typeb%>.' data-count='none' data-via='twotyp_es'>Tweet</a><script type='text/javascript' src='//platform.twitter.com/widgets.js'></script>");
+$("#share").html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://twotyp.es/<%=@post.id%>' data-text='There are two types of people: those who <%=escape_javascript(@post.typea)%>, and those who <%=escape_javascript(@post.typeb)%>.' data-count='none' data-via='twotyp_es'>Tweet</a><script type='text/javascript' src='//platform.twitter.com/widgets.js'></script>");
 $("#share").fadeIn("slow");
-// $("#share-temp").html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://twotyp.es/<%=@post.id%>' data-text='There are two types of people: those who <%=@post.typea%>, and those who <%=@post.typeb%>.' data-count='none' data-via='twotyp_es'>Tweet</a><script type='text/javascript' src='//platform.twitter.com/widgets.js'></script>");
-// temp = $("#share-temp").html();
-// setTimeout("setNewShare(temp)",20);
-// 
-// 
-// function setNewShare(temp) {	
-// 	$("#share").html(temp);
-// 	$("#share").show();
-// }
