@@ -1,7 +1,7 @@
-$("#types-display").hide();
-$("#types-display").html("<h2>those who <span class='green'><%= @post.typea %></span> and those who <span class='red'><%= @post.typeb %></span>.</h2>");
-$("#types-display").fadeIn("slow");
 $("#page").html("<%=@page %>");
+$("#types-display").hide();
 $("#share").hide();
-$("#share").html("<a href='https://twitter.com/share' class='twitter-share-button' data-url='http://twotyp.es/<%=@post.id%>' data-text='There are two types of people: those who <%=escape_javascript(@post.typea)%>, and those who <%=escape_javascript(@post.typeb)%>.' data-count='none' data-via='twotyp_es'>Tweet</a><script type='text/javascript' src='//platform.twitter.com/widgets.js'></script>");
+$("#types-display").html("<%=escape_javascript(render 'types')%>");
+$("#types-display").fadeIn("slow");
+$("#share").html("<%=escape_javascript(render 'share')%>");
 $("#share").fadeIn("slow");

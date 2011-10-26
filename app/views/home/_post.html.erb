@@ -11,7 +11,6 @@
 		if( code == 39 ) {
 			var page = parseInt($("#page").text());
 			page++;
-
 			if (page > <%=@count%>) { page = 1 }
 			$.ajax({
 				url: "/",
@@ -33,13 +32,14 @@
 	});
 </script>
 <div id="page">1</div>
-
-<h1>There are <span class="loud">
+<h1>
+	There are <span class="loud">
 	<span class="green">two</span> 
-	<span class="red">types</span></span> of people:</h1>
+	<span class="red">types</span></span> of people:
+</h1>
 
 <div id="types-display">
-	<h2>those who <span class="green"><%= @post.typea %></span> and those who <span class="red"><%= @post.typeb %></span>.</h2>
+	<%= render 'types' %>
 </div>
 
 <div id="types-form">
@@ -55,9 +55,8 @@
 	<% end %>
 </h2>
 </div>
-
 <div id="share">
-	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://twotyp.es/<%=@post.id%>" data-text="There are two types of people: those who <%=@post.typea%>, and those who <%=@post.typeb%>." data-count="none" data-via="twotyp_es">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+	<%= render 'share' %>
 </div>
-<div id="share-temp">
-</div>
+
+<div id="share-temp"></div>

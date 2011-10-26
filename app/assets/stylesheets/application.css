@@ -122,6 +122,10 @@ h2 {
 	color: #006C00;
 }
 
+.fb-like {
+	position: relative; 
+	top: -3px;
+}
 fieldset.buttons {
 	display: inline-block;
 	
